@@ -71,6 +71,7 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 6){
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()-1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
             }
             else{
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
@@ -79,6 +80,7 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 7){
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()-1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
             }
             else{
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
@@ -87,6 +89,7 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 8){
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()-1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
             }
             else{
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
@@ -124,6 +127,7 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 6){
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()+1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
             }
             else{
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
@@ -132,6 +136,7 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 7){
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()+1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
             }
             else{
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
@@ -140,6 +145,7 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 8){
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()+1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
             }
             else{
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
