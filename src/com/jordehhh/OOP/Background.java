@@ -1,3 +1,5 @@
+package com.jordehhh.OOP;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -5,6 +7,8 @@ import java.awt.event.KeyListener;
 
 public class Background extends JPanel implements KeyListener, ActionListener {
     private boolean play = false;
+
+    public Block block = new Block(4,4);
 
     private int totalBricks = 16;
 
@@ -90,19 +94,31 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         }
     }
     public void moveRight(){
-        play = true;
-        playerX += 200;
+        block.moveRight();
+        if (block.isMoveAllowed() == true){
+            playerX += 200;
+        }
+
     }
     public void moveLeft(){
-        play = true;
-        playerX -= 200;
+        block.moveLeft();
+        if (block.isMoveAllowed() == true){
+            playerX -= 200;
+        }
+
     }
     public void moveUp(){
-        play = true;
-        playerY -= 200;
+        block.moveUp();
+        if (block.isMoveAllowed() == true){
+            playerY -= 200;
+        }
+
     }
     public void moveDown(){
-        play = true;
-        playerY += 200;
+        block.moveDown();
+        if (block.isMoveAllowed() == true){
+            playerY += 200;
+        }
+
     }
 }

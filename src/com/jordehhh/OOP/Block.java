@@ -11,10 +11,12 @@ public class Block extends JPanel implements KeyListener, ActionListener {
     public int map[][];
     public int blockWidth;
     public int blockHeight;
+    public boolean moveAllowed = false;
     private Speler player = new Speler(0,0,0);
 
 
     public Block(int row, int col){
+        moveAllowed = false;
         map = new int[row][col];
         addKeyListener(this);
         setFocusable(true);
@@ -49,31 +51,43 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 1){
             player.setHuidigeLocatieX(player.getHuidigeLocatieX() - 1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 2){
             player.setSleutelInBezit(2);
             player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 3){
             player.setSleutelInBezit(3);
             player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 4){
             player.setSleutelInBezit(4);
             player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 5){
             //todo window toevoegen met error
+            moveAllowed = false;
         }
         if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 6){
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()-1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
@@ -81,8 +95,11 @@ public class Block extends JPanel implements KeyListener, ActionListener {
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()-1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
@@ -90,12 +107,16 @@ public class Block extends JPanel implements KeyListener, ActionListener {
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()-1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
         if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 9){
+            moveAllowed = true;
             //todo
         }
 
@@ -105,31 +126,43 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 1){
             player.setHuidigeLocatieX(player.getHuidigeLocatieX() + 1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 2){
             player.setSleutelInBezit(2);
             player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 3){
             player.setSleutelInBezit(3);
             player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 4){
             player.setSleutelInBezit(4);
             player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 5){
+            moveAllowed = false;
             //todo window toevoegen met error
         }
         if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 6){
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()+1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
@@ -137,8 +170,11 @@ public class Block extends JPanel implements KeyListener, ActionListener {
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()+1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
@@ -146,8 +182,11 @@ public class Block extends JPanel implements KeyListener, ActionListener {
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()+1][player.getHuidigeLocatieY()]){
                 player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
@@ -161,31 +200,43 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] == 1){
             player.setHuidigeLocatieY(player.getHuidigeLocatieY() - 1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() -1] == 2){
             player.setSleutelInBezit(2);
             player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() -1] == 3){
             player.setSleutelInBezit(3);
             player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() -1] == 4){
             player.setSleutelInBezit(4);
             player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] == 5){
+            moveAllowed = false;
             //todo window toevoegen met error
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] == 6){
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1]){
                 player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
@@ -193,8 +244,11 @@ public class Block extends JPanel implements KeyListener, ActionListener {
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1]){
                 player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
@@ -202,12 +256,16 @@ public class Block extends JPanel implements KeyListener, ActionListener {
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1]){
                 player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() -1] == 9){
+            moveAllowed = true;
             //todo
         }
 
@@ -217,31 +275,44 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] == 1){
             player.setHuidigeLocatieY(player.getHuidigeLocatieY() + 1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
+            moveAllowed = true;
+
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] == 2){
             player.setSleutelInBezit(2);
             player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 3){
             player.setSleutelInBezit(3);
             player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 4){
             player.setSleutelInBezit(4);
             player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
             map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
+            moveAllowed = true;
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 5){
+            moveAllowed = false;
             //todo window toevoegen met error
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 6){
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1]){
                 player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
@@ -249,8 +320,11 @@ public class Block extends JPanel implements KeyListener, ActionListener {
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1]){
                 player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
+                moveAllowed = true;
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
@@ -258,12 +332,17 @@ public class Block extends JPanel implements KeyListener, ActionListener {
             if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1]){
                 player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
                 map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
+                moveAllowed = true;
+
             }
             else{
+                moveAllowed = false;
                 //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
         }
         if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] == 9){
+            moveAllowed = true;
             //todo
         }
 
@@ -300,5 +379,13 @@ public class Block extends JPanel implements KeyListener, ActionListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    public boolean isMoveAllowed() {
+        return moveAllowed;
+    }
+
+    public void setMoveAllowed(boolean moveAllowed) {
+        this.moveAllowed = moveAllowed;
     }
 }
