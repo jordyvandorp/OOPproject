@@ -1,3 +1,5 @@
+package com.jordehhh.OOP;
+
 import java.awt.*;
 
 public class MapGenerator {

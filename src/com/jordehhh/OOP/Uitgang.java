@@ -1,9 +1,9 @@
 package com.jordehhh.OOP;
 
-public class Spel {
+public class Uitgang {
     private boolean uitgangIsBereikt;
 
-    public Spel(boolean uitgangIsBereikt){
+    public Uitgang(boolean uitgangIsBereikt){
         this.uitgangIsBereikt = uitgangIsBereikt;
     }
 
