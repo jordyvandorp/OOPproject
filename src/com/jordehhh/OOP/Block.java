@@ -11,7 +11,7 @@ public class Block extends JPanel implements KeyListener, ActionListener {
     public int map[][];
     public int blockWidth;
     public int blockHeight;
-    public boolean moveAllowed = false;
+    public boolean moveAllowed;
     private Speler player = new Speler(0,0,0);
 
 
@@ -47,307 +47,247 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         }
     }
 
+
     public void moveLeft(){
-        if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 1){
-            player.setHuidigeLocatieX(player.getHuidigeLocatieX() - 1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 2){
-            player.setSleutelInBezit(2);
-            player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 3){
-            player.setSleutelInBezit(3);
-            player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 4){
-            player.setSleutelInBezit(4);
-            player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 5){
-            //todo window toevoegen met error
-            moveAllowed = false;
-        }
-        if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 6){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()-1][player.getHuidigeLocatieY()]){
-                player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
-                moveAllowed = true;
+        if (player.getHuidigeLocatieX() > 0) {
+            if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 1) {
+                gotoLeft();
             }
-            else{
+            if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 2) {
+                player.setSleutelInBezit(2);
+                gotoLeft();
+            }
+            if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 3) {
+                player.setSleutelInBezit(3);
+                gotoLeft();
+            }
+            if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 4) {
+                player.setSleutelInBezit(4);
+                gotoLeft();
+            }
+            if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 5) {
+                //todo window toevoegen met error
                 moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
             }
-        }
-        if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 7){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()-1][player.getHuidigeLocatieY()]){
-                player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
+            if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 6) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()]) {
+                    gotoLeft();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
+            }
+            if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 7) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()]) {
+                    gotoLeft();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
+            }
+            if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 8) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()]) {
+                    gotoLeft();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
+            }
+            if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 9) {
                 moveAllowed = true;
+                //todo
             }
-            else{
-                moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
-            }
-        }
-        if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 8){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()-1][player.getHuidigeLocatieY()]){
-                player.setHuidigeLocatieX(player.getHuidigeLocatieX()-1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] = 1;
-                moveAllowed = true;
-            }
-            else{
-                moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
-            }
-        }
-        if(map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] == 9){
-            moveAllowed = true;
-            //todo
         }
 
+    }
+
+    public void gotoLeft() {
+        player.setHuidigeLocatieX(player.getHuidigeLocatieX() - 1);
+        map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+        //map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] = 1;
+        moveAllowed = true;
     }
 
     public void moveRight(){
-        if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 1){
-            player.setHuidigeLocatieX(player.getHuidigeLocatieX() + 1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 2){
-            player.setSleutelInBezit(2);
-            player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 3){
-            player.setSleutelInBezit(3);
-            player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 4){
-            player.setSleutelInBezit(4);
-            player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 5){
-            moveAllowed = false;
-            //todo window toevoegen met error
-        }
-        if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 6){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()+1][player.getHuidigeLocatieY()]){
-                player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
-                moveAllowed = true;
+        if (player.getHuidigeLocatieX() < 3) {
+            if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 1) {
+                gotoRight();
             }
-            else{
+            if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 2) {
+                player.setSleutelInBezit(2);
+                gotoRight();
+            }
+            if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 3) {
+                player.setSleutelInBezit(3);
+                gotoRight();
+            }
+            if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 4) {
+                player.setSleutelInBezit(4);
+                gotoRight();
+            }
+            if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 5) {
                 moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                //todo window toevoegen met error
             }
-        }
-        if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 7){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()+1][player.getHuidigeLocatieY()]){
-                player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
-                moveAllowed = true;
+            if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 6) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()]) {
+                    gotoRight();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
             }
-            else{
-                moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+            if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 7) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()]) {
+                    gotoRight();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
             }
-        }
-        if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 8){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()+1][player.getHuidigeLocatieY()]){
-                player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX() -1][player.getHuidigeLocatieY()] = 1;
-                moveAllowed = true;
+            if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 8) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()]) {
+                    gotoRight();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
             }
-            else{
-                moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+            if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 9) {
+                //todo
             }
-        }
-        if(map[player.getHuidigeLocatieX() +1][player.getHuidigeLocatieY()] == 9){
-            //todo
         }
 
+    }
+
+    public void gotoRight() {
+        player.setHuidigeLocatieX(player.getHuidigeLocatieX() + 1);
+        map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+        //map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] = 1;
+        moveAllowed = true;
     }
 
     public void moveUp(){
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] == 1){
-            player.setHuidigeLocatieY(player.getHuidigeLocatieY() - 1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() -1] == 2){
-            player.setSleutelInBezit(2);
-            player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() -1] == 3){
-            player.setSleutelInBezit(3);
-            player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() -1] == 4){
-            player.setSleutelInBezit(4);
-            player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] == 5){
-            moveAllowed = false;
-            //todo window toevoegen met error
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] == 6){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1]){
-                player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
-                moveAllowed = true;
+        if (player.getHuidigeLocatieY() > 0) {
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 1) {
+                goUp();
             }
-            else{
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 2) {
+                player.setSleutelInBezit(2);
+                goUp();
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 3) {
+                player.setSleutelInBezit(3);
+                goUp();
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 4) {
+                player.setSleutelInBezit(4);
+                goUp();
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 5) {
                 moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                //todo window toevoegen met error
             }
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() -1] == 7){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1]){
-                player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 6) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1]) {
+                    goUp();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 7) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1]) {
+                    goUp();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 8) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1]) {
+                    goUp();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 9) {
                 moveAllowed = true;
+                //todo
             }
-            else{
-                moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
-            }
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() -1] == 8){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1]){
-                player.setHuidigeLocatieY(player.getHuidigeLocatieY()-1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
-                moveAllowed = true;
-            }
-            else{
-                moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
-            }
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() -1] == 9){
-            moveAllowed = true;
-            //todo
         }
 
+    }
+
+    public void goUp() {
+        player.setHuidigeLocatieY(player.getHuidigeLocatieY() - 1);
+        map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+        //map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] = 1;
+        moveAllowed = true;
     }
 
     public void moveDown(){
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] == 1){
-            player.setHuidigeLocatieY(player.getHuidigeLocatieY() + 1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
-            moveAllowed = true;
-
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] == 2){
-            player.setSleutelInBezit(2);
-            player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 3){
-            player.setSleutelInBezit(3);
-            player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 4){
-            player.setSleutelInBezit(4);
-            player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-            map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
-            moveAllowed = true;
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 5){
-            moveAllowed = false;
-            //todo window toevoegen met error
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 6){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1]){
-                player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
-                moveAllowed = true;
-            }
-            else{
-                moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
-            }
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 7){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1]){
-                player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
-                moveAllowed = true;
-            }
-            else{
-                moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
-            }
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 8){
-            if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1]){
-                player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-                map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
-                moveAllowed = true;
+        if (player.getHuidigeLocatieY() < 3) {
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1] == 1) {
+                goDown();
 
             }
-            else{
-                moveAllowed = false;
-                //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1] == 2) {
+                player.setSleutelInBezit(2);
+                goDown();
             }
-        }
-        if(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] == 9){
-            moveAllowed = true;
-            //todo
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1] == 3) {
+                player.setSleutelInBezit(3);
+                goDown();
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1] == 4) {
+                player.setSleutelInBezit(4);
+                goDown();
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1] == 5) {
+                moveAllowed = false;
+                //todo window toevoegen met error
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1] == 6) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1]) {
+                    goDown();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1] == 7) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1]) {
+                    goDown();
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1] == 8) {
+                if (player.getSleutelInBezit() == map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1]) {
+                    goDown();
+
+                } else {
+                    moveAllowed = false;
+                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
+                }
+            }
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1] == 9) {
+                moveAllowed = true;
+                //todo
+            }
         }
 
     }
 
+    public void goDown() {
+        player.setHuidigeLocatieY(player.getHuidigeLocatieY() + 1);
+        map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
+        //map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()-1] = 1;
+        moveAllowed = true;
+    }
 
 
     @Override
