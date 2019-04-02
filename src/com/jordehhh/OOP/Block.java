@@ -23,12 +23,6 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-        //Speler speler = new Speler(0,0,0);
-//        for (int i = 0; i < map.length; i++){
-//            for(int j=0; j < map[0].length; j++){
-//                map[i][j] = 1;
-//            }
-//        }
 
         blockWidth = 400/col;
         blockHeight = 400/row;
@@ -116,16 +110,6 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         return false;
     }
 
-    /*public void gotoLeft() {
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1]);
-        map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() + 1] = 1;
-        player.setHuidigeLocatieY(player.getHuidigeLocatieY() - 1);
-
-        map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
-        moveAllowed = true;
-    }*/
     public void gotoLeft() {
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
@@ -262,14 +246,6 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         return false;
     }
 
-    /*public void goUp() {
-        System.out.println(map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()]);
-        player.setHuidigeLocatieX(player.getHuidigeLocatieX() - 1);
-        map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-        map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] = 1;
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
-        moveAllowed = true;
-    }*/
     public void goUp() {
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
@@ -335,16 +311,6 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         return false;
     }
 
-    /*public void goDown() {
-        System.out.println(map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()]);
-        player.setHuidigeLocatieX(player.getHuidigeLocatieX() + 1);
-        map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-        map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] = 1;
-        moveAllowed = true;
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
-    }*/
-
-
     public void goDown() {
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
@@ -353,17 +319,6 @@ public class Block extends JPanel implements KeyListener, ActionListener {
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         moveAllowed = true;
     }
-
-
-
-    /*public void goDown() {
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
-        map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
-        player.setHuidigeLocatieX(player.getHuidigeLocatieX() + 1);
-        map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
-        moveAllowed = true;
-    }*/
 
 
     @Override

@@ -23,20 +23,5 @@ public class GUI_test {
         Speler player = new Speler(0,0,0);
         player.getHuidigeLocatieX();
 
-
-
-        /*
-        JFrame frame = new JFrame();
-        Speelveld veld = new Speelveld();
-        frame.setBounds(10, 10, 809, 838);
-
-        frame.setTitle("Sleutelbarricade");
-        frame.setResizable(false);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.add(veld);
-        Speler player = new Speler(0,0,0);
-        player.getHuidigeLocatieX();
-         */
     }
 }
