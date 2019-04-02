@@ -95,30 +95,53 @@ public class Background extends JPanel implements KeyListener, ActionListener {
     }
     public void moveRight(){
         block.moveRight();
-        if (block.isMoveAllowed() == true){
+        if (block.moveRight()== true){
+            block.gotoRight();
             playerX += 200;
+        }
+        else{
+            System.out.println("This move is not allowed");
         }
 
     }
     public void moveLeft(){
         block.moveLeft();
-        if (block.isMoveAllowed() == true){
+        if (block.moveLeft() == true){
+            block.gotoLeft();
             playerX -= 200;
         }
 
     }
     public void moveUp(){
         block.moveUp();
-        if (block.isMoveAllowed() == true){
+        if (block.moveUp() == true){
+            block.goUp();
             playerY -= 200;
         }
 
     }
     public void moveDown(){
         block.moveDown();
-        if (block.isMoveAllowed() == true){
+        if (block.moveDown() == true){
+            block.goDown();
             playerY += 200;
         }
 
+    }
+
+    public int getPlayerX() {
+        return playerX;
+    }
+
+    public void setPlayerX(int playerX) {
+        this.playerX = playerX;
+    }
+
+    public int getPlayerY() {
+        return playerY;
+    }
+
+    public void setPlayerY(int playerY) {
+        this.playerY = playerY;
     }
 }
