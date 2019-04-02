@@ -120,7 +120,7 @@ public class Block extends JPanel implements KeyListener, ActionListener {
     }
 
     public boolean moveRight(){
-        if (player.getHuidigeLocatieY() < 3) {
+        if (player.getHuidigeLocatieY() < 9) {
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 1) {
                 return true;
             }
@@ -256,7 +256,7 @@ public class Block extends JPanel implements KeyListener, ActionListener {
     }
 
     public boolean moveDown(){
-        if (player.getHuidigeLocatieX() < 3) {
+        if (player.getHuidigeLocatieX() < 9) {
             if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 1) {
                 return true;
 
