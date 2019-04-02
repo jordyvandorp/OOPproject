@@ -23,7 +23,7 @@ public class Speler {
         return huidigeLocatieX;
     }
 
-    public void setHuidigeLocatieX(int huidigeLocatie) {
+    public void setHuidigeLocatieX(int huidigeLocatieX) {
         this.huidigeLocatieX = huidigeLocatieX;
     }
 
