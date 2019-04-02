@@ -32,21 +32,21 @@ public class Background extends JPanel implements KeyListener, ActionListener {
     public void paint(Graphics g){
         // background
         g.setColor(Color.white);
-        g.fillRect(1,1, 800, 800);
+        g.fillRect(1,1, 1000, 1000);
 
         // drawing map
         map.draw((Graphics2D)g);
 
         // borders
         g.setColor(Color.yellow);
-        g.fillRect(0, 0, 3, 800);
-        g.fillRect(0, 0, 800, 3);
-        g.fillRect(800, 0, 3, 800);
-        g.fillRect(0, 800, 800, 3);
+        g.fillRect(0, 0, 3, 1000);
+        g.fillRect(0, 0, 1000, 3);
+        g.fillRect(1000, 0, 3, 800);
+        g.fillRect(0, 1000, 1000, 3);
 
         // the ball
         g.setColor(Color.green);
-        g.fillOval(playerX, playerY, 200, 200);
+        g.fillOval(playerX, playerY, 100, 100);
 
         g.dispose();
     }
@@ -65,8 +65,8 @@ public class Background extends JPanel implements KeyListener, ActionListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if(playerX >= 600){
-                playerX = 600;
+            if(playerX >= 900){
+                playerX = 900;
             } else{
                 moveRight();
             }
@@ -86,8 +86,8 @@ public class Background extends JPanel implements KeyListener, ActionListener {
             }
         }
         if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-            if(playerY >= 600){
-                playerY = 600;
+            if(playerY >= 900){
+                playerY = 900;
             } else{
                 moveDown();
             }
@@ -97,7 +97,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         block.moveRight();
         if (block.moveRight()== true){
             block.gotoRight();
-            playerX += 200;
+            playerX += 100;
         }
         else{
             System.out.println("This move is not allowed");
@@ -108,7 +108,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         block.moveLeft();
         if (block.moveLeft() == true){
             block.gotoLeft();
-            playerX -= 200;
+            playerX -= 100;
         }
 
     }
@@ -116,7 +116,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         block.moveUp();
         if (block.moveUp() == true){
             block.goUp();
-            playerY -= 200;
+            playerY -= 100;
         }
 
     }
@@ -124,7 +124,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         block.moveDown();
         if (block.moveDown() == true){
             block.goDown();
-            playerY += 200;
+            playerY += 100;
         }
 
     }

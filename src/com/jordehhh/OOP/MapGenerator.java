@@ -5,10 +5,16 @@ import java.awt.*;
 public class MapGenerator {
     public int [][]map =
             {
-                    {0, 2, 6, 5},
-                    {5, 6, 7, 1},
-                    {4, 1, 5, 7},
-                    {1, 3, 8, 9}
+                    {0, 5, 6, 1, 1, 6, 1, 1, 5, 5},
+                    {1, 5, 6, 2, 1, 6, 1, 1, 3, 5},
+                    {1, 1, 6, 1, 5, 1, 1, 1, 7, 5},
+                    {1, 5, 6, 1, 5, 1, 5, 5, 1, 1},
+                    {3, 1, 5, 2, 6, 7, 5, 5, 7, 1},
+                    {1, 1, 1, 5, 6, 1, 5, 5, 1, 7},
+                    {5, 5, 1, 6, 6, 1, 4, 5, 7, 7},
+                    {2, 1, 1, 6, 6, 1, 1, 1, 5, 8},
+                    {1, 5, 8, 2, 6, 1, 8, 5, 8, 8},
+                    {1, 4, 8, 5, 3, 6, 8, 8, 5, 9}
             };
     public int brickWidth;
     public int brickHeight;
@@ -20,8 +26,8 @@ public class MapGenerator {
             }
         }*/
 
-        brickWidth = 800/4;
-        brickHeight = 800/4;
+        brickWidth = 1000/10;
+        brickHeight = 1000/10;
     }
     public void draw(Graphics2D g){
         for (int i = 0; i < map.length; i++) {
