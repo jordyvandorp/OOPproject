@@ -156,7 +156,7 @@ public class Block extends JPanel implements KeyListener, ActionListener {
                     //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
-            if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 8) {
+            if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] == 8) {
                 if (player.getSleutelInBezit() == 4) {
                     return true;
                 } else {
