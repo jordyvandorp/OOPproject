@@ -1,11 +1,11 @@
 package com.jordehhh.OOP;
 
-public class Speler {
+public class Player {
     private int huidigeLocatieX;
     private int huidigeLocatieY;
     private int sleutelInBezit;
 
-    public Speler(int huidigeLocatieX, int huidigeLocatieY, int sleutelInBezit){
+    public Player(int huidigeLocatieX, int huidigeLocatieY, int sleutelInBezit){
         this.huidigeLocatieX = huidigeLocatieX;
         this.sleutelInBezit = sleutelInBezit;
         this.huidigeLocatieY = huidigeLocatieY;

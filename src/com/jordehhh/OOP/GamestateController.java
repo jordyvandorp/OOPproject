@@ -6,18 +6,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Block extends JPanel implements KeyListener, ActionListener {
+public class GamestateController extends JPanel implements KeyListener, ActionListener {
 
     public int map[][];
     public int blockWidth;
     public int blockHeight;
     public boolean moveAllowed;
-    private Speler player = new Speler(0,0,0);
+    private Player player = new Player(0,0,0);
 
 
-    public Block(int row, int col){
+    public GamestateController(int row, int col){
         moveAllowed = false;
-        MapGenerator mg = new MapGenerator(4,4);
+        MapGenerator mg = new MapGenerator();
         map = mg.map;
         //map = new int[row][col];
         addKeyListener(this);

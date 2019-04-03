@@ -1,9 +1,9 @@
 package com.jordehhh.OOP;
 
-public class Uitgang {
+public class Exit {
     private boolean uitgangIsBereikt;
 
-    public Uitgang(boolean uitgangIsBereikt){
+    public Exit(boolean uitgangIsBereikt){
         this.uitgangIsBereikt = uitgangIsBereikt;
     }
 

@@ -8,9 +8,7 @@ import java.awt.event.KeyListener;
 public class Background extends JPanel implements KeyListener, ActionListener {
     private boolean play = false;
 
-    public Block block = new Block(4,4);
-
-    private int totalBricks = 16;
+    public GamestateController gamestateController = new GamestateController(4,4);
 
     private Timer timer;
     private int delay = 8;
@@ -21,7 +19,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
     private MapGenerator map;
 
     public Background(){
-        map = new MapGenerator(4,4);
+        map = new MapGenerator();
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -94,9 +92,9 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         }
     }
     public void moveRight(){
-        block.moveRight();
-        if (block.moveRight()== true){
-            block.gotoRight();
+        gamestateController.moveRight();
+        if (gamestateController.moveRight()== true){
+            gamestateController.gotoRight();
             playerX += 100;
         }
         else{
@@ -105,25 +103,25 @@ public class Background extends JPanel implements KeyListener, ActionListener {
 
     }
     public void moveLeft(){
-        block.moveLeft();
-        if (block.moveLeft() == true){
-            block.gotoLeft();
+        gamestateController.moveLeft();
+        if (gamestateController.moveLeft() == true){
+            gamestateController.gotoLeft();
             playerX -= 100;
         }
 
     }
     public void moveUp(){
-        block.moveUp();
-        if (block.moveUp() == true){
-            block.goUp();
+        gamestateController.moveUp();
+        if (gamestateController.moveUp() == true){
+            gamestateController.goUp();
             playerY -= 100;
         }
 
     }
     public void moveDown(){
-        block.moveDown();
-        if (block.moveDown() == true){
-            block.goDown();
+        gamestateController.moveDown();
+        if (gamestateController.moveDown() == true){
+            gamestateController.goDown();
             playerY += 100;
         }
 
