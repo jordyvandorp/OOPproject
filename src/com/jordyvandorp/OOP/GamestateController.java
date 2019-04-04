@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class GamestateController extends JPanel implements KeyListener, ActionListener {
+public class GamestateController extends JPanel{
 
     public int map[][];
 
@@ -16,7 +16,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
     public GamestateController(){
         MapGenerator mg = new MapGenerator();
         map = mg.map;
-        addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
     }
@@ -321,38 +320,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
         player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
-    }
-
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-            moveRight();
-        }
-        if(e.getKeyCode() == KeyEvent.VK_LEFT){
-            moveLeft();
-        }
-        if(e.getKeyCode() == KeyEvent.VK_UP){
-            moveUp();
-        }
-        if(e.getKeyCode() == KeyEvent.VK_DOWN){
-            moveDown();
-        }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
     }
 
 }
