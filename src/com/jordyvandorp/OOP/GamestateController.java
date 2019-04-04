@@ -22,11 +22,11 @@ public class GamestateController extends JPanel{
 
     /*
     0 = player
-    1 = leeg vakje
-    2 = sleutel 100
-    3 = sleutel 200
-    4 = sleutel 300
-    5 = muur
+    1 = empty square
+    2 = key 100
+    3 = key 200
+    4 = key 300
+    5 = wall
     6 = barricade 100
     7 = barricade 200
     8 = barricade 300
@@ -85,20 +85,18 @@ public class GamestateController extends JPanel{
 
     //handles movement to the left.
     public void gotoLeft() {
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
         player.setHuidigeLocatieY(player.getHuidigeLocatieY() - 1);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
     }
 
     /*
     0 = player
-    1 = leeg vakje
-    2 = sleutel 100
-    3 = sleutel 200
-    4 = sleutel 300
-    5 = muur
+    1 = empty square
+    2 = key 100
+    3 = key 200
+    4 = key 300
+    5 = wall
     6 = barricade 100
     7 = barricade 200
     8 = barricade 300
@@ -158,20 +156,18 @@ public class GamestateController extends JPanel{
 
     //handles movement to the right
     public void gotoRight() {
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
         player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
     }
 
     /*
     0 = player
-    1 = leeg vakje
-    2 = sleutel 100
-    3 = sleutel 200
-    4 = sleutel 300
-    5 = muur
+    1 = empty square
+    2 = key 100
+    3 = key 200
+    4 = key 300
+    5 = wall
     6 = barricade 100
     7 = barricade 200
     8 = barricade 300
@@ -240,20 +236,18 @@ public class GamestateController extends JPanel{
 
     //handles upward movement
     public void goUp() {
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
         player.setHuidigeLocatieX(player.getHuidigeLocatieX() - 1);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
     }
 
     /*
     0 = player
-    1 = leeg vakje
-    2 = sleutel 100
-    3 = sleutel 200
-    4 = sleutel 300
-    5 = muur
+    1 = empty square
+    2 = key 100
+    3 = key 200
+    4 = key 300
+    5 = wall
     6 = barricade 100
     7 = barricade 200
     8 = barricade 300
@@ -315,11 +309,9 @@ public class GamestateController extends JPanel{
 
     //handles downward movement
     public void goDown() {
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
         player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
-        System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
     }
 
 }

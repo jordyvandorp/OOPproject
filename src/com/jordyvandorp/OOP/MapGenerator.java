@@ -29,12 +29,6 @@ public class MapGenerator {
     public int brickWidth;
     public int brickHeight;
     public MapGenerator(){
-        /*map = new int[row][col];
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[0].length; j++) {
-                map[i][j] = 1;
-            }
-        }*/
 
         brickWidth = 1000/10;
         brickHeight = 1000/10;
