@@ -1,4 +1,4 @@
-package com.jordehhh.OOP;
+package com.jordyvandorp.OOP;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
     public int blockWidth;
     public int blockHeight;
     public boolean moveAllowed;
-    private Player player = new Player(0,0,0);
+    public Player player = new Player(0,0,0);
 
 
     public GamestateController(int row, int col){

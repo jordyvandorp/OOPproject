@@ -1,4 +1,4 @@
-package com.jordehhh.OOP;
+package com.jordyvandorp.OOP;
 
 public class Player {
     private int huidigeLocatieX;

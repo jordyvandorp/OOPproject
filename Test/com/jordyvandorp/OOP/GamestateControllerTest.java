@@ -1,8 +1,6 @@
-package com.jordehhh.OOP;
+package com.jordyvandorp.OOP;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class GamestateControllerTest {
 

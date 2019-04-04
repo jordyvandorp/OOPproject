@@ -1,4 +1,4 @@
-package com.jordehhh.OOP;
+package com.jordyvandorp.OOP;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,7 +6,6 @@ import java.awt.event.*;
 import java.awt.event.KeyListener;
 
 public class Background extends JPanel implements KeyListener, ActionListener {
-    private boolean play = false;
 
     public GamestateController gamestateController = new GamestateController(4,4);
 
@@ -96,6 +95,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         if (gamestateController.moveRight()== true){
             gamestateController.gotoRight();
             playerX += 100;
+            map.setValueRight(1, gamestateController.player.getHuidigeLocatieX(), gamestateController.player.getHuidigeLocatieY(), 0);
         }
         else{
             System.out.println("This move is not allowed");
@@ -107,6 +107,10 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         if (gamestateController.moveLeft() == true){
             gamestateController.gotoLeft();
             playerX -= 100;
+            map.setValueLeft(1, gamestateController.player.getHuidigeLocatieX(), gamestateController.player.getHuidigeLocatieY(), 0);
+        }
+        else{
+            System.out.println("This move is not allowed");
         }
 
     }
@@ -115,6 +119,9 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         if (gamestateController.moveUp() == true){
             gamestateController.goUp();
             playerY -= 100;
+            map.setValueUp(1, gamestateController.player.getHuidigeLocatieX(), gamestateController.player.getHuidigeLocatieY(), 0);
+        } else{
+            System.out.println("This move is not allowed");
         }
 
     }
@@ -123,6 +130,9 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         if (gamestateController.moveDown() == true){
             gamestateController.goDown();
             playerY += 100;
+            map.setValueDown(1, gamestateController.player.getHuidigeLocatieX(), gamestateController.player.getHuidigeLocatieY(), 0);
+        } else{
+            System.out.println("This move is not allowed");
         }
 
     }
