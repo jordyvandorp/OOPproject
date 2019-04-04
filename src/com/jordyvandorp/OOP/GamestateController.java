@@ -1,6 +1,5 @@
 package com.jordyvandorp.OOP;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -11,12 +10,10 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
     public int map[][];
     public int blockWidth;
     public int blockHeight;
-    public boolean moveAllowed;
     public Player player = new Player(0,0,0);
 
 
     public GamestateController(int row, int col){
-        moveAllowed = false;
         MapGenerator mg = new MapGenerator();
         map = mg.map;
         //map = new int[row][col];
@@ -104,7 +101,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
         player.setHuidigeLocatieY(player.getHuidigeLocatieY() - 1);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
-        moveAllowed = true;
     }
 
     public boolean moveRight(){
@@ -168,7 +164,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
         player.setHuidigeLocatieY(player.getHuidigeLocatieY()+1);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
-        moveAllowed = true;
     }
 
     public boolean moveUp(){
@@ -240,7 +235,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
         player.setHuidigeLocatieX(player.getHuidigeLocatieX() - 1);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
-        moveAllowed = true;
     }
 
     public boolean moveDown(){
@@ -305,7 +299,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
         player.setHuidigeLocatieX(player.getHuidigeLocatieX()+1);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
-        moveAllowed = true;
     }
 
 
@@ -340,11 +333,4 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
 
     }
 
-    public boolean isMoveAllowed() {
-        return moveAllowed;
-    }
-
-    public void setMoveAllowed(boolean moveAllowed) {
-        this.moveAllowed = moveAllowed;
-    }
 }
