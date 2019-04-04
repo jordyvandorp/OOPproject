@@ -12,7 +12,7 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
     public int blockWidth;
     public int blockHeight;
     public boolean moveAllowed;
-    private Player player = new Player(0,0,0);
+    public Player player = new Player(0,0,0);
 
 
     public GamestateController(int row, int col){

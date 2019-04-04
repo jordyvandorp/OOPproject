@@ -6,15 +6,15 @@ public class MapGenerator {
     public int [][]map =
             {
                     {0, 5, 6, 1, 1, 6, 1, 1, 5, 5},
-                    {1, 5, 6, 2, 1, 6, 1, 1, 3, 5},
+                    {1, 5, 6, 1, 1, 6, 1, 1, 1, 5},
                     {1, 1, 6, 1, 5, 1, 1, 1, 7, 5},
                     {1, 5, 6, 1, 5, 1, 5, 5, 1, 1},
-                    {3, 1, 5, 2, 6, 7, 5, 5, 7, 1},
+                    {1, 3, 5, 2, 6, 7, 5, 5, 7, 1},
                     {1, 1, 1, 5, 6, 1, 5, 5, 1, 7},
                     {5, 5, 1, 6, 6, 1, 4, 5, 7, 7},
                     {2, 1, 1, 6, 6, 1, 1, 1, 5, 8},
                     {1, 5, 8, 2, 6, 1, 8, 5, 8, 8},
-                    {1, 4, 8, 5, 3, 6, 8, 8, 8, 9}
+                    {1, 4, 8, 5, 3, 6, 8, 8, 5, 9}
                     /*{0,1,1,1,1,1,1,1,1,1},
                     {1,1,1,1,1,1,1,1,1,1},
                     {1,1,1,1,1,1,1,1,1,1},
@@ -148,5 +148,21 @@ public class MapGenerator {
                 }
             }
         }
+    }
+    public void setValueRight(int value, int playerX, int playerY, int value2){
+        map[playerX][playerY - 1] = value;
+        map[playerX][playerY] = value2;
+    }
+    public void setValueLeft(int value, int playerX, int playerY, int value2){
+        map[playerX][playerY + 1] = value;
+        map[playerX][playerY] = value2;
+    }
+    public void setValueUp(int value, int playerX, int playerY, int value2){
+        map[playerX + 1][playerY] = value;
+        map[playerX][playerY] = value2;
+    }
+    public void setValueDown(int value, int playerX, int playerY, int value2){
+        map[playerX - 1][playerY] = value;
+        map[playerX][playerY] = value2;
     }
 }
