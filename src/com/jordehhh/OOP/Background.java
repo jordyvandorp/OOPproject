@@ -6,7 +6,7 @@ import java.awt.event.*;
 import java.awt.event.KeyListener;
 
 public class Background extends JPanel implements KeyListener, ActionListener {
-    //private boolean play = false;
+    private boolean play = false;
 
     public GamestateController gamestateController = new GamestateController(4,4);
 
@@ -51,9 +51,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        /*if(play) {
-                map.setValueRight(1);
-        }*/
+
         repaint();
     }
 
@@ -94,12 +92,10 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         }
     }
     public void moveRight(){
-        //play = true;
         gamestateController.moveRight();
         if (gamestateController.moveRight()== true){
             gamestateController.gotoRight();
             playerX += 100;
-            map.setValueRight(1, gamestateController.player.getHuidigeLocatieX(), gamestateController.player.getHuidigeLocatieY(), 0);
         }
         else{
             System.out.println("This move is not allowed");
@@ -107,37 +103,31 @@ public class Background extends JPanel implements KeyListener, ActionListener {
 
     }
     public void moveLeft(){
-        //play = true;
         gamestateController.moveLeft();
         if (gamestateController.moveLeft() == true){
             gamestateController.gotoLeft();
             playerX -= 100;
-            map.setValueLeft(1, gamestateController.player.getHuidigeLocatieX(), gamestateController.player.getHuidigeLocatieY(), 0);
         }
 
     }
     public void moveUp(){
-        //play = true;
         gamestateController.moveUp();
         if (gamestateController.moveUp() == true){
             gamestateController.goUp();
             playerY -= 100;
-            map.setValueUp(1, gamestateController.player.getHuidigeLocatieX(), gamestateController.player.getHuidigeLocatieY(), 0);
         }
 
     }
     public void moveDown(){
-        //play = true;
         gamestateController.moveDown();
         if (gamestateController.moveDown() == true){
             gamestateController.goDown();
             playerY += 100;
-            map.setValueDown(1, gamestateController.player.getHuidigeLocatieX(), gamestateController.player.getHuidigeLocatieY(), 0);
         }
 
     }
 
-    /*public int getPlayerX() {
+    public int getPlayerX() {
         return playerX;
     }
 
@@ -151,5 +141,5 @@ public class Background extends JPanel implements KeyListener, ActionListener {
 
     public void setPlayerY(int playerY) {
         this.playerY = playerY;
-    }*/
+    }
 }
