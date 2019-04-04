@@ -68,6 +68,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
             } else{
                 moveRight();
             }
+
         }
         if(e.getKeyCode() == KeyEvent.VK_LEFT) {
             if(playerX <= 0){
@@ -123,6 +124,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         if (gamestateController.moveDown() == true){
             gamestateController.goDown();
             playerY += 100;
+            
         }
 
     }

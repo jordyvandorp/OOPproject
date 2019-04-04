@@ -12,6 +12,7 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
     public int blockWidth;
     public int blockHeight;
     public boolean moveAllowed;
+    public Exit exit = new Exit();
     private Player player = new Player(0,0,0);
 
 
@@ -165,6 +166,7 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                 }
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 9) {
+                exit.exitReached();
                 return true;
                 //todo
             }
@@ -238,6 +240,7 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
             }
             //exit
             if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 9) {
+                exit.exitReached();
                 return true;
                 //todo
             }
