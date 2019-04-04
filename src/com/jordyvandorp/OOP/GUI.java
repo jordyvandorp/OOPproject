@@ -9,7 +9,7 @@ public class GUI {
         Background backGround = new Background();
 
         startFrame.setBounds(10, 10, 1008, 1038);
-        startFrame.setTitle("TEST GUI");
+        startFrame.setTitle("Sleutelbarricade");
         startFrame.setResizable(false);
         startFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         startFrame.add(backGround);

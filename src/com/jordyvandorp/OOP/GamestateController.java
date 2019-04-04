@@ -8,26 +8,18 @@ import java.awt.event.KeyListener;
 public class GamestateController extends JPanel implements KeyListener, ActionListener {
 
     public int map[][];
-    public int blockWidth;
-    public int blockHeight;
+
     public Player player = new Player(0,0,0);
+    public Exit exit = new Exit();
 
 
-    public GamestateController(int row, int col){
+    public GamestateController(){
         MapGenerator mg = new MapGenerator();
         map = mg.map;
-        //map = new int[row][col];
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-
-        blockWidth = 400/col;
-        blockHeight = 400/row;
     }
-
-
-
-
 
     /*
     0 = player
@@ -40,6 +32,7 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
     7 = barricade 200
     8 = barricade 300
     9 = exit
+    checks if movement to the left is allowed.
      */
     public boolean moveLeft(){
         if (player.getHuidigeLocatieY() > 0) {
@@ -59,7 +52,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                 return true;
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 5) {
-                //todo window toevoegen met error
                 return false;
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 6) {
@@ -67,7 +59,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 7) {
@@ -75,7 +66,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 8) {
@@ -83,18 +73,18 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 9) {
+                exit.exitReached();
                 return true;
-                //todo
             }
         }
 
         return false;
     }
 
+    //handles movement to the left.
     public void gotoLeft() {
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
@@ -103,6 +93,19 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
     }
 
+    /*
+    0 = player
+    1 = leeg vakje
+    2 = sleutel 100
+    3 = sleutel 200
+    4 = sleutel 300
+    5 = muur
+    6 = barricade 100
+    7 = barricade 200
+    8 = barricade 300
+    9 = exit
+    checks if movement to the right is allowed.
+     */
     public boolean moveRight(){
         if (player.getHuidigeLocatieY() < 9) {
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 1) {
@@ -122,14 +125,12 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 5) {
                 return false;
-                //todo window toevoegen met error
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 6) {
                 if (player.getSleutelInBezit() == 2) {
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 7) {
@@ -137,7 +138,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] == 8) {
@@ -145,12 +145,11 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 9) {
+                exit.exitReached();
                 return true;
-                //todo
             }
         }
 
@@ -158,6 +157,7 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
         return false;
     }
 
+    //handles movement to the right
     public void gotoRight() {
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
@@ -165,6 +165,20 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
     }
+
+    /*
+    0 = player
+    1 = leeg vakje
+    2 = sleutel 100
+    3 = sleutel 200
+    4 = sleutel 300
+    5 = muur
+    6 = barricade 100
+    7 = barricade 200
+    8 = barricade 300
+    9 = exit
+    checks if upward movement is allowed
+     */
 
     public boolean moveUp(){
         if (player.getHuidigeLocatieX() > 0) {
@@ -190,7 +204,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
             //muur
             if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 5) {
                 return false;
-                //todo window toevoegen met error
             }
             //barricade 100
             if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 6) {
@@ -198,7 +211,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             //barricade 200
@@ -207,7 +219,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             //barricade 300
@@ -216,19 +227,19 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             //exit
             if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 9) {
+                exit.exitReached();
                 return true;
-                //todo
             }
         }
 
         return false;
     }
 
+    //handles upward movement
     public void goUp() {
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;
@@ -236,6 +247,20 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
     }
+
+    /*
+    0 = player
+    1 = leeg vakje
+    2 = sleutel 100
+    3 = sleutel 200
+    4 = sleutel 300
+    5 = muur
+    6 = barricade 100
+    7 = barricade 200
+    8 = barricade 300
+    9 = exit
+    Checks if a move downwards is allowed.
+     */
 
     public boolean moveDown(){
         if (player.getHuidigeLocatieX() < 9) {
@@ -257,14 +282,12 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
             }
             if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 5) {
                 return false;
-                //todo window toevoegen met error
             }
             if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 6) {
                 if (player.getSleutelInBezit() == 2) {
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 7) {
@@ -272,7 +295,6 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
                     return true;
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 8) {
@@ -281,18 +303,18 @@ public class GamestateController extends JPanel implements KeyListener, ActionLi
 
                 } else {
                     return false;
-                    //todo window toevoegen dat aangeeft dat je niet de goede sleutel hebt
                 }
             }
             if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 9) {
+                exit.exitReached();
                 return true;
-                //todo
             }
         }
 
         return false;
     }
 
+    //handles downward movement
     public void goDown() {
         System.out.println(map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()]);
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 1;

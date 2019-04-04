@@ -7,14 +7,12 @@ import java.awt.event.KeyListener;
 
 public class Background extends JPanel implements KeyListener, ActionListener {
 
-    public GamestateController gamestateController = new GamestateController(4,4);
+    public GamestateController gamestateController = new GamestateController();
 
     private Timer timer;
     private int delay = 8;
-
     private int playerX = 0;
     private int playerY = 0;
-
     private MapGenerator map;
 
     public Background(){

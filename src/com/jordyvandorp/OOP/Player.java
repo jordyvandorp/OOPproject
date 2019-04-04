@@ -11,13 +11,6 @@ public class Player {
         this.huidigeLocatieY = huidigeLocatieY;
     }
 
-    public void breekMuur(){
-
-    }
-
-    public void beweging() {
-
-    }
 
     public int getHuidigeLocatieX() {
         return huidigeLocatieX;
