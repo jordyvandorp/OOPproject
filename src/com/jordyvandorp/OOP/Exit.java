@@ -9,14 +9,12 @@ public class Exit {
     public void exitReached(){
         JFrame frame = new JFrame();
         final int frameWidth = 300;
-        final int frameHeight = 100;
+        final int frameHeight = 80;
         frame.setSize(frameWidth, frameHeight);
         frame.setResizable(false);
         JPanel panel = new JPanel();
-        JLabel label = new JLabel("Congratulations! You did it!");
-        JButton button = new JButton("Close");
+        JLabel label = new JLabel("Congratulations, you won!");
         panel.add(label);
-        //panel.add(button);
         frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Victory");
