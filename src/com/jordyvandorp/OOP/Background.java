@@ -52,6 +52,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         repaint();
     }
 
+
     @Override
     public void keyTyped(KeyEvent e) {}
     @Override
@@ -86,6 +87,9 @@ public class Background extends JPanel implements KeyListener, ActionListener {
             } else{
                 moveDown();
             }
+        }
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+            reset();
         }
     }
     public void moveRight(){
@@ -133,6 +137,13 @@ public class Background extends JPanel implements KeyListener, ActionListener {
             System.out.println("This move is not allowed");
         }
 
+    }
+
+    public void reset(){
+        map = new MapGenerator();
+        playerX = 0;
+        playerY = 0;
+        gamestateController.reset();
     }
 
 }

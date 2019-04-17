@@ -11,10 +11,11 @@ public class GamestateController extends JPanel{
 
     public Player player = new Player(0,0,0);
     public Exit exit = new Exit();
+    public MapGenerator mg = new MapGenerator();
+    //public Background bg = new Background();
 
 
     public GamestateController(){
-        MapGenerator mg = new MapGenerator();
         map = mg.map;
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -314,4 +315,12 @@ public class GamestateController extends JPanel{
         map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()] = 0;
     }
 
+
+
+    public void reset() {
+        player = new Player(0,0,0);
+        mg = new MapGenerator();
+        map = mg.map;
+
+    }
 }
