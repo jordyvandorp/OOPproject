@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 
 public class GamestateController extends JPanel{
 
-    public int map[][];
+    public int[][] map;
 
     public Player player = new Player(0,0,0);
     public Exit exit = new Exit();
@@ -55,25 +55,13 @@ public class GamestateController extends JPanel{
                 return false;
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 6) {
-                if (player.getSleutelInBezit() == 2) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 2;
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 7) {
-                if (player.getSleutelInBezit() == 3) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 3;
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 8) {
-                if (player.getSleutelInBezit() == 4) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 4;
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() - 1] == 9) {
                 exit.exitReached();
@@ -125,25 +113,13 @@ public class GamestateController extends JPanel{
                 return false;
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 6) {
-                if (player.getSleutelInBezit() == 2) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 2;
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 7) {
-                if (player.getSleutelInBezit() == 3) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 3;
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY() +1] == 8) {
-                if (player.getSleutelInBezit() == 4) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 4;
             }
             if (map[player.getHuidigeLocatieX()][player.getHuidigeLocatieY()+1] == 9) {
                 exit.exitReached();
@@ -203,27 +179,15 @@ public class GamestateController extends JPanel{
             }
             //barricade 100
             if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 6) {
-                if (player.getSleutelInBezit() == 2) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 2;
             }
             //barricade 200
             if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 7) {
-                if (player.getSleutelInBezit() == 3) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 3;
             }
             //barricade 300
             if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 8) {
-                if (player.getSleutelInBezit() == 4) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 4;
             }
             //exit
             if (map[player.getHuidigeLocatieX() - 1][player.getHuidigeLocatieY()] == 9) {
@@ -278,26 +242,13 @@ public class GamestateController extends JPanel{
                 return false;
             }
             if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 6) {
-                if (player.getSleutelInBezit() == 2) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 2;
             }
             if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 7) {
-                if (player.getSleutelInBezit() == 3) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 3;
             }
             if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 8) {
-                if (player.getSleutelInBezit() == 4) {
-                    return true;
-
-                } else {
-                    return false;
-                }
+                return player.getSleutelInBezit() == 4;
             }
             if (map[player.getHuidigeLocatieX() + 1][player.getHuidigeLocatieY()] == 9) {
                 exit.exitReached();
@@ -316,7 +267,7 @@ public class GamestateController extends JPanel{
     }
 
 
-
+    // Resets the field by making new instances and changing variables to their original values.
     public void reset() {
         player = new Player(0,0,0);
         mg = new MapGenerator();

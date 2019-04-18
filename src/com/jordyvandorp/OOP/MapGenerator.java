@@ -35,7 +35,7 @@ public class MapGenerator {
 
     /**
      * @param g
-     * The method draw is there to go through the array and draw the coroct color on the correct position in the JFRame
+     * The method draw is there to go through the array and draw the correct color on the correct position in the JFrame
      */
     public void draw(Graphics2D g){
         for (int i = 0; i < map.length; i++) {

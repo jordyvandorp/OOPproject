@@ -4,12 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 
 public class Exit {
 
-    Background background;
     private int brickWidth;
     private int brickHeight;
+    private JFrame frame = new JFrame();
 
     public Exit(){
         brickHeight = 1000/10;
@@ -26,7 +30,7 @@ public class Exit {
     }
 
     public void exitReached(){
-        JFrame frame = new JFrame();
+
         JPanel panel = new JPanel();
 
         final int frameWidth = 500;
@@ -37,16 +41,17 @@ public class Exit {
         panel.setLayout(new GridLayout(2,1));
         JLabel label = new JLabel("Congratulations, you won!");
         label.setFont(new java.awt.Font("Tahoma", 0, 36));
-        JLabel resetLabel = new JLabel("Press Enter for restart");
-        resetLabel.setFont(new java.awt.Font("Tahoma", 0, 36));
+        JLabel resetLabel = new JLabel("Close this window and press enter to restart.");
+        resetLabel.setFont(new java.awt.Font("Tahoma", 0, 24));
 
         panel.add(label);
         panel.add(resetLabel);
 
         frame.add(panel);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setTitle("You've won!");
         frame.setVisible(true);
     }
+
 }

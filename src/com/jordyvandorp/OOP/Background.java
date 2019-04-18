@@ -134,7 +134,7 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         }
 
     }
-
+    // Resets the field by making new instances and changing variables to their original values.
     public void reset(){
         map = new MapGenerator();
         playerX = 0;
