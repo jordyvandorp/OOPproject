@@ -93,7 +93,6 @@ public class Background extends JPanel implements KeyListener, ActionListener {
         }
     }
     public void moveRight(){
-        gamestateController.moveRight();
         if (gamestateController.moveRight()== true){
             gamestateController.gotoRight();
             playerX += 100;
@@ -105,7 +104,6 @@ public class Background extends JPanel implements KeyListener, ActionListener {
 
     }
     public void moveLeft(){
-        gamestateController.moveLeft();
         if (gamestateController.moveLeft() == true){
             gamestateController.gotoLeft();
             playerX -= 100;
@@ -117,7 +115,6 @@ public class Background extends JPanel implements KeyListener, ActionListener {
 
     }
     public void moveUp(){
-        gamestateController.moveUp();
         if (gamestateController.moveUp() == true){
             gamestateController.goUp();
             playerY -= 100;
@@ -128,7 +125,6 @@ public class Background extends JPanel implements KeyListener, ActionListener {
 
     }
     public void moveDown(){
-        gamestateController.moveDown();
         if (gamestateController.moveDown() == true){
             gamestateController.goDown();
             playerY += 100;
